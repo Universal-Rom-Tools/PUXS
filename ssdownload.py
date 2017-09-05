@@ -1,6 +1,5 @@
 """
 Function to download from ScreenScraper
-    return True or Error message
 """
 
 from urllib import request
@@ -13,6 +12,10 @@ import pickle
 
 
 def downloadfile(ssurl, ssxml):
+    """
+    this function will download the ssurl to the ssxml
+    return True or Error message
+    """
     screenscrapererror = {400: "URL missing parameters",
                           401: "API closed for non suscriber user",
                           403: "Dev login error",
@@ -32,6 +35,9 @@ def downloadfile(ssurl, ssxml):
 
 
 def urlconstruct(rom, systemid='', ssid='', sspassword=''):
+    """
+    this function will return the constructed ssurl
+    """
     with open('devlogin', 'rb') as fichier:
         devlogin = pickle.Unpickler(fichier).load()
 

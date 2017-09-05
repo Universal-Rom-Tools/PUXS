@@ -2,6 +2,7 @@
 from romfile import romfile
 from ssdownload import downloadfile
 from ssdownload import urlconstruct
+from xmlreader import xmlvalue
 from os.path import splitext
 import logging
 
@@ -13,10 +14,11 @@ logging.debug("size :{}".format(rom.size))
 logging.debug("crc32 :{}".format(rom.crc32))
 logging.debug("md5 :{}".format(rom.md5))
 logging.debug("sha1 :{}".format(rom.sha1))
-ssurl = urlconstruct(rom,1)
+ssurl = urlconstruct(rom, 1)
 ssxml = splitext(rom.name)[0] + '.xml'
 result = downloadfile(ssurl, ssxml)
 if result == True:
     logging.info("download OK")
+    xmlvalue(ssxml, 'media', '', 'jeu', 'box-2D', 'eu')
 else:
     logging.warning(result)
