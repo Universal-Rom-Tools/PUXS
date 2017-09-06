@@ -3,8 +3,6 @@
 from xml.etree import ElementTree
 import logging
 
-logging.basicConfig(format='%(asctime)s - %(levelname)s - (XML) - %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',filename='logXML.txt',level=logging.DEBUG)
-
 def xmlvalue(xmlfile, xmlnode, xmlid='', xmlparent='', xmltype='', xmlregion='', xmllangue=''):
     """
     this function return the XML value or nothing from ScreenScraper XML
@@ -32,4 +30,5 @@ def xmlvalue(xmlfile, xmlnode, xmlid='', xmlparent='', xmltype='', xmlregion='',
             logging.info("------------> {}".format(node.text))
 
 if __name__ == "__main__":
+    logging.basicConfig(format='%(asctime)s - %(levelname)s - (xmlreader) - %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',filename='log-xmlreader.txt',level=logging.DEBUG)
     xmlvalue('Sonic The Hedgehog (USA, Europe).xml', 'media','','jeu','box-2D','eu')

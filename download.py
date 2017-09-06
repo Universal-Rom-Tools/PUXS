@@ -1,5 +1,5 @@
 """
-Function to download from ScreenScraper
+Function to download
 """
 
 from urllib import request
@@ -11,7 +11,7 @@ from base64 import b64decode
 import pickle
 
 
-def downloadfile(ssurl, ssxml):
+def ssdownloadfile(ssurl, ssxml):
     """
     this function will download the ssurl to the ssxml
     return True or Error message
@@ -34,7 +34,7 @@ def downloadfile(ssurl, ssxml):
         return True
 
 
-def urlconstruct(rom, systemid='', ssid='', sspassword=''):
+def ssurlconstruct(rom, systemid='', ssid='', sspassword=''):
     """
     this function will return the constructed ssurl
     """
@@ -69,9 +69,9 @@ def urlconstruct(rom, systemid='', ssid='', sspassword=''):
 
 if __name__ == "__main__":
     rom = romfile("Sonic The Hedgehog (USA, Europe).zip")
-    ssurl = urlconstruct(rom,1)
+    ssurl = ssurlconstruct(rom,1)
     ssxml = splitext(rom.name)[0] + '.xml'
-    result = downloadfile(ssurl, ssxml)
+    result = ssdownloadfile(ssurl, ssxml)
     if result == True:
         print("download OK")
     else:
